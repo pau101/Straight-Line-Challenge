@@ -164,8 +164,9 @@ public final class StraightLineChallenge {
         return entity instanceof PlayerEntity ? Optional.empty() : result;
     }
 
-    public static Optional<Vec3d> getBedSpawnPosition(final Optional<Vec3d> result) {
-        return Optional.empty();
+    public static Optional<Vec3d> getBedSpawnPosition(final Optional<Vec3d> result, final BlockPos pos) {
+        BlockPos up = pos.up();
+        return Optional.of(new Vec3d(up.getX() + 0.5D, up.getY() + 0.1D, up.getZ() + 0.5D));
     }
 
     public static BlockPos getEyeOfEnderTarget(final @Nullable BlockPos result, final World world) {

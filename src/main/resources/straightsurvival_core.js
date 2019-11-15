@@ -162,7 +162,8 @@ easycore.inMethod(LivingEntity.lambda$wakeUp$6(BlockPos))
 // Leave/join server while in bed
 easycore.inMethod(PlayerEntity.func_213822_a(IWorldReader, BlockPos, boolean))
     .atLast(getBedSpawnPosition).append(
-        invokestatic(Mod.getBedSpawnPosition(java.util.Optional), java.util.Optional)
+        aload(1),
+        invokestatic(Mod.getBedSpawnPosition(java.util.Optional, BlockPos), java.util.Optional)
     );
 
 // Fix wake up position not centered
