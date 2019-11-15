@@ -1,0 +1,22 @@
+modLoader="javafml"
+loaderVersion="[28,)"
+issueTrackerURL="https://github.com/pau101/Straight-Line-Challenge/issues"
+[[mods]]
+    modId="straightline"
+    version="${version}"
+    displayName="Straight Line Challenge"
+    displayURL="https://minecraft.curseforge.com/projects/straight-line-challenge"
+    authors="pau101"
+    description="Defeat the Ender Dragon while confined to a straight line!"
+[[dependencies.straightline]]
+    modId="forge"
+    mandatory=true
+    versionRange="[28,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.straightline]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.14.4]"
+    ordering="NONE"
+    side="BOTH"
