@@ -53,8 +53,7 @@ easycore.inMethod(Entity.func_184205_a(Entity, boolean))
     .atFirst(putfield(Entity.field_184239_as)).prepend(
         aload(0),
         aload(1),
-        iload(2),
-        invokestatic(Mod.startRiding(Entity, Entity, boolean))
+        invokestatic(Mod.startRiding(Entity, Entity))
     );
 
 // Omit z-axis collision (allows sprinting, stops unintentional water hopping)

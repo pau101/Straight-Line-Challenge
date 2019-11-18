@@ -55,8 +55,8 @@ public final class StraightLineChallenge {
         return vec;
     }
 
-    public static void startRiding(final Entity entity, final Entity other, final boolean force) {
-        if (!force && entity instanceof PlayerEntity && other.isAddedToWorld() ) {
+    public static void startRiding(final Entity entity, final Entity other) {
+        if (entity instanceof PlayerEntity && other.isAddedToWorld()) {
             other.setPositionAndRotation(other.posX, other.posY, entity.posZ, other.rotationYaw, other.rotationPitch);
         }
     }
