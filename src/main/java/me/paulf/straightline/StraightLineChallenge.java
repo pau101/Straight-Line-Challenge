@@ -65,10 +65,6 @@ public final class StraightLineChallenge {
         return result || entity instanceof PlayerEntity || entity instanceof EnderPearlEntity;
     }
 
-    public static void tickEnderPearl(final EnderPearlEntity entity) {
-        entity.setMotion(new Vec3d(entity.getMotion().x, entity.getMotion().y, 0.0D));
-    }
-
     public static boolean makeSpawnLocation(final ServerPlayerEntity player, final ServerWorld world) {
         if (world.dimension.getType() != DimensionType.OVERWORLD) {
             return false;
@@ -105,7 +101,7 @@ public final class StraightLineChallenge {
         final BiomeProvider provider = generator.getBiomeProvider();
         final int z = stronghold.getZ();
         final BlockPos blockpos = provider.findBiomePosition(0, z, 256, provider.getBiomesToSpawnIn(), new Random(world.getSeed()));
-        boolean checkSurface = BlockTags.VALID_SPAWN.getAllElements().stream()
+        final boolean checkSurface = BlockTags.VALID_SPAWN.getAllElements().stream()
             .map(Block::getDefaultState)
             .anyMatch(provider.getSurfaceBlocks()::contains);
         final int x = blockpos == null ? 0 : new ChunkPos(blockpos).getXStart();
@@ -165,7 +161,7 @@ public final class StraightLineChallenge {
     }
 
     public static Optional<Vec3d> getBedSpawnPosition(final Optional<Vec3d> result, final BlockPos pos) {
-        BlockPos up = pos.up();
+        final BlockPos up = pos.up();
         return Optional.of(new Vec3d(up.getX() + 0.5D, up.getY() + 0.1D, up.getZ() + 0.5D));
     }
 

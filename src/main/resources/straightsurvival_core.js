@@ -41,6 +41,13 @@ easycore.inMethod(Entity.func_213306_e(Vec3d))
         invokestatic(Mod.getAllowedMovement(Vec3d, Entity), Vec3d)
     );
 
+// Prevent motion along z axis
+easycore.inMethod(Entity.func_213317_d(Vec3d))
+    .atEach(putfield(Entity.field_213327_at)).prepend(
+        aload(0),
+        invokestatic(Mod.getAllowedMovement(Vec3d, Entity), Vec3d)
+    );
+
 // Move vehicle to player
 easycore.inMethod(Entity.func_184205_a(Entity, boolean))
     .atFirst(putfield(Entity.field_184239_as)).prepend(
@@ -172,13 +179,6 @@ easycore.inMethod(LivingEntity.func_213366_dy())
         aload(0),
         getstatic(Pose.STANDING, Pose),
         invokevirtual(LivingEntity.func_213301_b(Pose))
-    );
-
-// Don't move ender pearl along x-axis
-easycore.inMethod(EnderPearlEntity.func_70071_h_())
-    .atFirst().prepend(
-        aload(0),
-        invokestatic(Mod.tickEnderPearl(EnderPearlEntity))
     );
 
 // Don't teleport along z-axis
